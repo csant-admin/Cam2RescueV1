@@ -1,0 +1,68 @@
+/* .nav-scrolled {
+    --text: #333;
+    --text-inverse: #f4f4f4;
+    --background: #f4f4f4;
+    box-shadow: 0 3px 20px rgba(0, 0, 0, 0.2);
+} */
+nav {
+    background: transparent;
+}
+.scrolled {
+    background: #000 !important;
+    color: #fff;
+    position: fixed;
+    width: 100%;
+    z-index: 1000; /* Ensure the navigation appears above other content */
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.unscrolled {
+
+    background: #fff !important;
+    color: #000;
+    position: fixed;
+    width: 100%;
+    z-index: 1000; /* Ensure the navigation appears above other content */
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.vh-100 {
+    height: auto;
+    background: #bb921712;
+}
+.form-control-lg {
+    height: 60px !important;
+    border-radius: 2rem !important;
+    border: 2px solid #0000002b;
+}
+.form-control:focus {
+    border-color: #ffa500;
+    box-shadow: 0 0 0 0.2rem rgb(255 165 0 / 102%);
+}
+.form-check-input[type=checkbox] {
+    border-radius: 2rem;
+    height: 28px;
+    width: 28px;
+    border: 2px solid #0000002b;
+}
+.form-check-input:checked {
+    border-color: #ffa500 !important;
+    box-shadow: 0 0 0 0.2rem rgb(255 165 0 / 102%);
+}
+.form-check-label {
+    display: inline-block;
+    padding-top: 5px;
+}
+.btn-button {
+    background-color: #ffa500;
+    box-shadow: 0 0 0 0.2rem rgb(255 165 0 / 102%);
+    border-radius: 2rem;
+}
+.btn-button:hover{
+    background-color: #8fc1ec;
+    box-shadow: 0 0 0 0.2rem #97bef9db;
+}
+
+
