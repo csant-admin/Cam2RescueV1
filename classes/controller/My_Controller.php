@@ -1,6 +1,6 @@
 <?php 
 
-    class My_Controller {
+    class My_Controller extends My_Model {
 
         public function getRawData($tbl, $data, $type='') {
             $result = $this->get_row_data($tbl, $data, $type);

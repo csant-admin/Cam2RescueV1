@@ -8,14 +8,14 @@
     <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
     <div id="navbarSupportedContent" class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto">
-        <li class="nav-item active"><a href="index.php" class="nav-link font-weight-bold text-lg text-white">Home <span class="sr-only">(current)</span></a></li>
-        <li class="nav-item"><a href="users/aboutus.php" class="nav-link font-weight-bold text-lg text-white">About</a></li>
+        <li class="nav-item active"><a href="#" page-name="home" class="nav-link font-weight-bold text-lg text-white">Home <span class="sr-only">(current)</span></a></li>
+        <li class="nav-item"><a href="#" page-name="about" class="nav-link font-weight-bold text-lg text-white">About</a></li>
         <li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle font-weight-bold text-lg text-white" data-bs-toggle="dropdown">Services</a>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item text-lg font-weight-bold" href="users/account_settings.php">My Dashboard</a></li>
-                <li><a class="dropdown-item text-lg font-weight-bold" href="users/views.php">My Post</a></li>
-                <li><a class="dropdown-item text-lg font-weight-bold" href="users/ord_user_rescue_page.php">For Rescue</a></li>
-                <li><a class="dropdown-item text-lg font-weight-bold" href="users/user-listforadoption.php">My Request</a></li>
+                <li><a class="dropdown-item text-lg font-weight-bold" href="#" page-name="dashboard">My Dashboard</a></li>
+                <li><a class="dropdown-item text-lg font-weight-bold" href="#" page-name="mypost">My Post</a></li>
+                <li><a class="dropdown-item text-lg font-weight-bold" href="#" page-name="rescue">For Rescue</a></li>
+                <li><a class="dropdown-item text-lg font-weight-bold" href="#" page-name="request">My Request</a></li>
             </ul>
         </li>
         <li class="nav-item dropdown">
@@ -29,11 +29,11 @@
                 <ul class="dropdown-menu bg-transparent">
                 </ul>
         </li>
-        <li class="nav-item"><a href="contact.php" class="nav-link font-weight-bold text-lg text-white">Contact</a></li>
+        <li class="nav-item"><a href="#" page-name="contact" class="nav-link font-weight-bold text-lg text-white">Contact</a></li>
         <?php 
             if(!isset($_SESSION['username'])): ?>
-                <li class="nav-item"><a href="login_user.php" class="nav-link font-weight-bold text-lg text-white">Login</a></li>
-                <li class="nav-item"><a href="users/registration.php" class="nav-link font-weight-bold text-lg text-white">Signup</a></li>
+                <li class="nav-item"><a href="#" page-name="login" class="nav-link font-weight-bold text-lg text-white">Login</a></li>
+                <li class="nav-item"><a href="#" page-name="register" class="nav-link font-weight-bold text-lg text-white">Signup</a></li>
         <?php 
             else: ?>
                 <li class="nav-item"><a href="logout.php" class="nav-link font-weight-bold text-lg text-white">Logout</a></li>

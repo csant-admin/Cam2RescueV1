@@ -1,6 +1,6 @@
 <?php
 
-    class My_Model {
+    class My_Model extends DBConnection {
 
         protected function get_row_data($tbl, $data, $type='') {
             $select = isset($data['select']) ? $data['select'] : '*';
