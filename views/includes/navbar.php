@@ -31,13 +31,10 @@
         </li>
         <li class="nav-item"><a href="#" page-name="contact" class="nav-link font-weight-bold text-lg">Contact</a></li>
         <?php 
-            if(!isset($_SESSION['username'])): ?>
-                <li class="nav-item"><a href="#" page-name="login" class="nav-link font-weight-bold text-lg">Login</a></li>
-                <li class="nav-item"><a href="#" page-name="register" class="nav-link font-weight-bold text-lg">Signup</a></li>
-        <?php 
-            else: ?>
+            if(isset($_SESSION['username'])): ?>
                 <li class="nav-item"><a href="logout.php" class="nav-link font-weight-bold text-lg">Logout</a></li>
-        <?php
-            endif; ?>
+                <?php
+            endif; 
+        ?>
   </div>
 </nav>

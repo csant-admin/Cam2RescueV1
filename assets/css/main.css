@@ -4,8 +4,8 @@
     --background: #f4f4f4;
     box-shadow: 0 3px 20px rgba(0, 0, 0, 0.2);
 } */
-nav {
-    background: transparent;
+section {
+    margin-top: 80px;
 }
 .scrolled {
     background: #000 !important;
@@ -18,8 +18,7 @@ nav {
     right: 0;
 }
 .unscrolled {
-
-    background: #fff !important;
+    background: transparent !important;
     color: #000;
     position: fixed;
     width: 100%;
@@ -33,23 +32,33 @@ nav {
     background: #bb921712;
 }
 .form-control-lg {
+    padding: .75rem 1rem;
     height: 60px !important;
     border-radius: 2rem !important;
     border: 2px solid #0000002b;
+    padding-left: 50px;
 }
-.form-control:focus {
+textarea {
+    border-radius: 2rem !important;
+    border: 2px solid #0000002b;
+    padding-left: 50px;
+}
+
+.form-control:focus, 
+textarea:focus {
     border-color: #ffa500;
-    box-shadow: 0 0 0 0.2rem rgb(255 165 0 / 102%);
+    box-shadow: -3px 5px 1px -2px #ffa500;
 }
+
 .form-check-input[type=checkbox] {
     border-radius: 2rem;
     height: 28px;
     width: 28px;
     border: 2px solid #0000002b;
 }
-.form-check-input:checked {
+.form-check-input:checked{
     border-color: #ffa500 !important;
-    box-shadow: 0 0 0 0.2rem rgb(255 165 0 / 102%);
+    box-shadow: -3px 5px 1px -2px #ffa500;
 }
 .form-check-label {
     display: inline-block;
@@ -57,7 +66,7 @@ nav {
 }
 .btn-button {
     background-color: #ffa500;
-    box-shadow: 0 0 0 0.2rem rgb(255 165 0 / 102%);
+    box-shadow: -3px 5px 1px -2px #ffa500;
     border-radius: 2rem;
 }
 .btn-button:hover{

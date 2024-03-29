@@ -1,12 +1,11 @@
     <?php include '../../views/includes/head.php'; ?>
     <?php include '../../views/includes/navbar.php'; ?>
     <section class="home-intro">
-        <br/><br/><br/><br/><br/>
         <?php 
             if(!isset($_SESSION['username'])) { ?>
-                <div class="display">
-                  <a href="login_user.php" class="register-btn w3-margin w3-round-large">Register Now</a>
-                  <a href="login_user.php" class="login-btn w3-margin w3-round-large">Log In</a>
+                <div class="display mt-5">
+                  <a href="#" class="nav-link register-btn btn-button" page-name="register">Register Now</a>
+                  <a href="#" class="nav-link login-btn btn-button" page-name="login">Log In</a>
                 </div>
                 <?php 
             }
@@ -28,7 +27,7 @@
         </p>
         <hr class="my-4">
         <p class="lead">
-          <a href="users/donation-listorg.php" class="w3-btn-donate w3-round-large" href="#" role="button">Donate</a>
+          <a href="users/donation-listorg.php" class="w3-btn-donate btn-button" href="#" role="button">Donate</a>
           <i><p>All of the donations process will only be by the use of GCash.</p></i>
         </p>
     </div>

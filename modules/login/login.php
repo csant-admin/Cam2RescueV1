@@ -18,16 +18,15 @@
                 </div>
                 <br/>
                 <!-- Email input -->
-                <div class="form-outline mb-4">
+                <div class="form-input mb-5">
                     <input type="text" name="username" id="usr" class="form-control form-control-lg"
                     placeholder="Enter a valid email address" />
                     <!-- <label class="form-label" for="form3Example3">Email address</label> -->
                 </div>
 
                 <!-- Password input -->
-                <div class="form-outline mb-3">
-                    <input type="password" name="password" id="pwd" class="form-control form-control-lg"
-                    placeholder="Enter password" />
+                <div class="form-input mb-4">
+                    <input type="password" name="password" id="pwd" class="form-control form-control-lg" placeholder="Enter password" />
                     <!-- <label class="form-label" for="form3Example4">Password</label> -->
                 </div>
 
@@ -54,5 +53,3 @@
     </div>
 </section>
 <?php include '../../views/includes/script.php'; ?>
-</body>
-</html>
