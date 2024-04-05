@@ -9,7 +9,7 @@
         
         public function insertRawData($tbl, $data) {
             $result = $this->insert_data($tbl, $data);
-            return ($result) ? true : false;
+            return $result;
         }
 
         public function updateRawData($tbl_name, $set, $where) {
@@ -20,6 +20,11 @@
         public function deleteRawData($tbl_name, $where) {
             $result = $this->delete_data($tbl_name, $where);
             return ($result) ? true : false;
+        }
+
+        public function checkExistEmail($tbl, $data, $type='') {
+            $result = $this->get_row_data($tbl, $data, $type);
+            return ($result) ? $result : false;
         }
     }
 

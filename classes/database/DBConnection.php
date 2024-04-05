@@ -11,9 +11,9 @@
             try {
                 $dsn = 'mysql:host='. $this->server. '; dbname='. $this->databaseName;
                 $pdoConnect = new PDO($dsn, $this->user, $this->password);
-                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-                return $pdo;
+                $pdoConnect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                $pdoConnect->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+                return $pdoConnect;
             } catch(PDOException $e) {
                 echo 'ERROR ' . $e->getMessage();
             }

@@ -1,40 +1,31 @@
 
-<nav class="navbar navbar-expand-lg bg-transparent text-dark py-3 p-3 shadow-lg">
+<nav class="navbar navbar-expand-lg bg-transparent text-dark py-3 p-3 shadow-lg unscrolled">
 <div class="container">
-    <a href="#" class="navbar-brand">
+    <a href="<?php echo BASE_URL . 'modules/home/index.php'?>" class="navbar-brand">
         <img src="assets/img/logo3.png" width="45" alt="" class="d-inline-block align-middle mr-2">
         <span class="text-uppercase font-weight-bold">Cam2Rescue</span>
     </a>
-    <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
-    <div id="navbarSupportedContent" class="collapse navbar-collapse">
-        <ul class="navbar-nav ml-auto">
-        <li class="nav-item active default-color"><a href="#" page-name="home" class="nav-link font-weight-bold text-lg">Home <span class="sr-only">(current)</span></a></li>
-        <li class="nav-item"><a href="#" page-name="about" class="nav-link font-weight-bold text-lg">About</a></li>
-        <li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle font-weight-bold text-lg" data-bs-toggle="dropdown">Services</a>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item text-lg font-weight-bold" href="#" page-name="dashboard">My Dashboard</a></li>
-                <li><a class="dropdown-item text-lg font-weight-bold" href="#" page-name="mypost">My Post</a></li>
-                <li><a class="dropdown-item text-lg font-weight-bold" href="#" page-name="rescue">For Rescue</a></li>
-                <li><a class="dropdown-item text-lg font-weight-bold" href="#" page-name="request">My Request</a></li>
-            </ul>
-        </li>
-        <li class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle font-weight-bold text-lg" role="button" data-toggle="dropdown" area-haspopup="true" aria-expanded="false">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bell" viewBox="0 0 16 16">
-                    <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"/>
-                </svg> 
-                <span class="badge bg-danger" id="count">
-                </span>
-                </a>
-                <ul class="dropdown-menu bg-transparent">
+    <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"><i class="fa fa-bars"></i></button>
+    <div id="left-navigation-item" class="d-flex justify-content-end">
+        <div id="navbarSupportedContent" class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+            <li class="nav-item active default-color"><a href="<?php echo BASE_URL . 'modules/home/index.php'?>" page-name="home" class="nav-link font-weight-bold text-lg text-dark"><i class="fa fa-home"></i> Home <span class="sr-only">(current)</span></a></li>
+            <li class="nav-item"><a href="<?php echo BASE_URL . 'modules/about/index.php'?>" page-name="about" class="nav-link font-weight-bold text-lg text-dark"><i class="fa fa-lightbulb"></i> About</a></li>
+            <li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle font-weight-bold text-lg text-dark" data-bs-toggle="dropdown"><i class="fa fa-rocket"></i> Services</a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item text-lg font-weight-bold" href="<?php echo BASE_URL . 'modules/dashboard/index.php'?>" page-name="dashboard">My Dashboard</a></li>
+                    <li><a class="dropdown-item text-lg font-weight-bold" href="<?php echo BASE_URL . 'modules/dashboard/post.php'?>" page-name="mypost">My Post</a></li>
+                    <li><a class="dropdown-item text-lg font-weight-bold" href="<?php echo BASE_URL . 'modules/dashboard/rescue.php'?>" page-name="rescue">For Rescue</a></li>
+                    <li><a class="dropdown-item text-lg font-weight-bold" href="<?php echo BASE_URL . 'modules/dashboard/request.php'?>" page-name="request">My Request</a></li>
                 </ul>
-        </li>
-        <li class="nav-item"><a href="#" page-name="contact" class="nav-link font-weight-bold text-lg">Contact</a></li>
-        <?php 
-            if(isset($_SESSION['username'])): ?>
-                <li class="nav-item"><a href="logout.php" class="nav-link font-weight-bold text-lg">Logout</a></li>
-                <?php
-            endif; 
-        ?>
-  </div>
+            </li>
+            <li class="nav-item"><a href="<?php echo BASE_URL . 'modules/contact/index.php'?>" page-name="contact" class="nav-link font-weight-bold text-lg text-dark"><i class="fa fa-phone"></i> Contact</a></li>
+            <?php 
+                if(isset($_SESSION['userData'])): ?>
+                    <li class="nav-item"><a href="<?php echo BASE_URL . 'modules/logout/logout.php'?>" class="nav-link font-weight-bold text-lg text-dark"><i class="fa fa-user"></i> Logout</a></li>
+                    <?php
+                endif; 
+            ?>
+        </div>
+    </div>
 </nav>

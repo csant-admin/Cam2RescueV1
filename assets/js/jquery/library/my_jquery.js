@@ -1,22 +1,24 @@
 $(document).ready(function(){
 
-    home(); 
+    // home(); 
 
-    function home() {
+    // function home() {
 
-        $('#assets-css').attr('href', base_url + 'assets/css/home.css');
-    }
+    //     $('#assets-css').attr('href', base_url + 'assets/css/home.css');
+    // }
 
-    $(document).on('click', '.nav-link', function(e) {
-        e.preventDefault();
-        var page = $(this).attr('page-name');
-        var csspath = base_url + 'assets/css/' + page + '.css';
-        var jspath = base_url + 'assets/js/' + page + '.js';
-        var pageUrl = base_url + 'modules/' + page + '/' + page + '.php';
-        $('#assets-css').attr('href', csspath);
-        $('#assets-js').attr('src', jspath);
-        window.location.href= pageUrl;
-    });
+    
+
+    // $(document).on('click', '.nav-link', function(e) {
+    //     e.preventDefault();
+    //     var page = $(this).attr('page-name');
+    //     var csspath = base_url + 'assets/css/' + page + '.css';
+    //     var jspath = base_url + 'assets/js/' + page + '.js';
+    //     var pageUrl = base_url + 'modules/' + page + '/' + page + '.php';
+    //     $('#assets-css').attr('href', csspath);
+    //     $('#assets-js').attr('src', jspath);
+    //     window.location.href= pageUrl;
+    // });
 
     $(window).on("scroll", function(e) {
         e.preventDefault();
@@ -31,6 +33,8 @@ $(document).ready(function(){
             
         }
     });
+
+    
 
     const menu = document.querySelector('#mobile-menu');
     const menuLinks = document.querySelector('.navbar__menu');
@@ -100,30 +104,38 @@ $(document).ready(function(){
             this.classList.toggle('bg-dark');
         };
     });
-
-    document.addEventListener("DOMContentLoaded", function(){
-        if (window.innerWidth > 992) {
-          document.querySelectorAll('.navbar .nav-item').forEach(function(everyitem){
-            everyitem.addEventListener('mouseover', function(e){
-              let el_link = this.querySelector('a[data-bs-toggle]');
-              if(el_link != null){
-                let nextEl = el_link.nextElementSibling;
-                el_link.classList.add('show');
-                nextEl.classList.add('show');
-              }
-            });
-            everyitem.addEventListener('mouseleave', function(e){
-              let el_link = this.querySelector('a[data-bs-toggle]');
-              if(el_link != null){
-                let nextEl = el_link.nextElementSibling;
-                el_link.classList.remove('show');
-                nextEl.classList.remove('show');
-              }
-            })
-          });
-        }
-    }); 
-
+    $('#fileup').change(function(){
+//here we take the file extension and set an array of valid extensions
+    var res=$('#fileup').val();
+    var arr = res.split("\\");
+    var filename=arr.slice(-1)[0];
+    filextension=filename.split(".");
+    filext="."+filextension.slice(-1)[0];
+    valid=[".jpg",".png",".jpeg",".bmp"];
+//if file is not valid we show the error icon, the red alert, and hide the submit button
+    if (valid.indexOf(filext.toLowerCase())==-1){
+        $( ".imgupload" ).hide("slow");
+        $( ".imgupload.ok" ).hide("slow");
+        $( ".imgupload.stop" ).show("slow");
+      
+        $('#namefile').css({"color":"red","font-weight":700});
+        $('#namefile').html("File "+filename+" is not  pic!");
+        
+        $( "#submitbtn" ).hide();
+        $( "#fakebtn" ).show();
+    }else{
+        //if file is valid we show the green alert and show the valid submit
+        $( ".imgupload" ).hide("slow");
+        $( ".imgupload.stop" ).hide("slow");
+        $( ".imgupload.ok" ).show("slow");
+      
+        $('#namefile').css({"color":"green","font-weight":700});
+        $('#namefile').html(filename);
+      
+        $( "#submitbtn" ).show();
+        $( "#fakebtn" ).hide();
+    }
+});
     const inpFile = document.getElementById("inpFile");
         const previewContainer = document.getElementById("imagePreview");
         const previewImage = previewContainer.querySelector(".image-preview__image");

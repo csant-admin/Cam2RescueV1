@@ -4,11 +4,12 @@
     --background: #f4f4f4;
     box-shadow: 0 3px 20px rgba(0, 0, 0, 0.2);
 } */
-section {
-    margin-top: 80px;
+*{
+    font-family: Poppins;
 }
 .scrolled {
     background: #000 !important;
+    box-shadow: 0 3px 20px rgba(0, 0, 0, 0.2);
     color: #fff;
     position: fixed;
     width: 100%;
@@ -18,36 +19,48 @@ section {
     right: 0;
 }
 .unscrolled {
-    background: transparent !important;
+    /* background: transparent !important; */
     color: #000;
-    position: fixed;
     width: 100%;
     z-index: 1000; /* Ensure the navigation appears above other content */
     top: 0;
     left: 0;
     right: 0;
 }
+.unscrolled .navbar-brand {
+    color: #000 !important;
+}
+.scrolled .navbar-brand {
+    color: #fff !important;
+}
 .vh-100 {
     height: auto;
     background: #bb921712;
 }
+
+@media only screen and (max-width: 991px) {
+    .navbar>.container {
+        display: block !important;
+    }
+}
 .form-control-lg {
-    padding: .75rem 1rem;
     height: 60px !important;
     border-radius: 2rem !important;
     border: 2px solid #0000002b;
-    padding-left: 50px;
+    padding-left: 65px;
+    font-size: 22px;
 }
 textarea {
     border-radius: 2rem !important;
     border: 2px solid #0000002b;
-    padding-left: 50px;
+    padding-left: 65px;
+    font-size: 22px;
 }
 
 .form-control:focus, 
 textarea:focus {
     border-color: #ffa500;
-    box-shadow: -3px 5px 1px -2px #ffa500;
+    box-shadow: -2px 8px 15px -8px #ffa500 !important;
 }
 
 .form-check-input[type=checkbox] {
@@ -58,7 +71,7 @@ textarea:focus {
 }
 .form-check-input:checked{
     border-color: #ffa500 !important;
-    box-shadow: -3px 5px 1px -2px #ffa500;
+    box-shadow: -2px 8px 15px -8px #ffa500 !important;
 }
 .form-check-label {
     display: inline-block;
@@ -66,12 +79,14 @@ textarea:focus {
 }
 .btn-button {
     background-color: #ffa500;
-    box-shadow: -3px 5px 1px -2px #ffa500;
+    box-shadow: -2px 8px 15px -8px #ffa500 !important;
     border-radius: 2rem;
 }
 .btn-button:hover{
     background-color: #8fc1ec;
     box-shadow: 0 0 0 0.2rem #97bef9db;
 }
+
+
 
 

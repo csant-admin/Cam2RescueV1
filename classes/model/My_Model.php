@@ -7,9 +7,11 @@
             $where = isset($data['where']) ? $data['where'] : array();
             $join = isset($data['join']) ? $data['join'] : array();
             $sql = "SELECT $select FROM $tbl";
+            
             foreach ($join as $table => $condition):
                 $sql .= " JOIN $table ON $condition";
             endforeach;
+            
             if (!empty($where)):
                 $sql .= " WHERE ";
                 $conditions = array();
@@ -23,22 +25,26 @@
                 foreach ($where as $column => $value):
                     $stmt->bindValue(":$column", $value);
                 endforeach;
+            // echo '<pre>';
+            // print_r($stmt);
+            // echo '</pre>';
+            // exit;
                 $stmt->execute();
                 return ($type === 'row') ? $stmt->fetch() : $stmt->fetchAll();
             } catch(PDOException $e) {
                 echo 'ERROR ' . $e->getMessage();
                 return false; 
-            }
+            } 
         }
         
         protected function insert_data($tbl, $data) {
-            if(isset($data)):
+            if(isset($data)) {
                 $keys = array();
                 $dataValues = array();
-                foreach($data as $key => $data_value):
+                foreach($data as $key => $data_value) {
                     $keys[] = $key;
                     $dataValues[] = $data_value;
-                endforeach;
+                }
                 $valuePlaceholders = rtrim(str_repeat('?,', count($dataValues)), ',');
                 $sql = "INSERT INTO $tbl (" . implode(',', $keys) . ") VALUES ($valuePlaceholders)";
                 $stmt = $this->connect()->prepare($sql);
@@ -49,9 +55,9 @@
                     echo 'ERROR ' . $e->getMessage();
                     return false; 
                 }
-            endif;
+            }
         }
-
+        
         protected function update_data($tbl_name, $set, $where) {
 
             if(isset($set) && isset($where)) {
@@ -95,7 +101,7 @@
                     echo 'ERROR ' . $e->getMessage();
                     return false; 
                 }
-            endforeach;
+            endif;
         }
         
     }
