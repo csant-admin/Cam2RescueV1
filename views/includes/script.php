@@ -12,7 +12,7 @@
         </script>
         <script src="<?php echo BASE_URL . 'assets/js/modules/register.js'; ?>"></script>
         <script src="<?php echo BASE_URL . 'assets/js/modules/login.js'; ?>"></script>
-        <script src="<?php echo BASE_URL . 'assets/js/modules/login.js'; ?>"></script>
+        <script src="<?php echo BASE_URL . 'assets/js/modules/adoption.js'; ?>"></script>
         <script>
             $(document).ready(function(){
                 document.addEventListener("DOMContentLoaded", function(){

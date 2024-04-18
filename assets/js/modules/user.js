@@ -143,7 +143,66 @@ $(document).ready(function(){
                                     animate__faster
                                   `
                                 }
-                              });
+                            });
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error(xhr.responseText);
+                    }
+                })
+            }
+        });
+    });
+
+    $(document).on('click', '.activate-deactivate', function(e) {
+        e.preventDefault();
+        const id = $(this).data('id');
+        const status = $(this).data('status');
+        console.log(id);
+        console.log(status);
+        Swal.fire({
+            title: "Are you sure?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Confirm",
+            allowOutsideClick: false 
+          }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: base_url + 'modules/user/backend.php',
+                    method: 'POST',
+                    data: { action : 'updateUserStatus', userID : id, account_status : status },
+                    dataType: 'json',
+                    success: function(response){
+                        if(response.success) {
+                            Swal.fire({
+                                title: `${response.title}`,
+                                text:  `${response.msg}`,
+                                icon: "success"
+                            });
+                            setTimeout(function(){
+                                window.location.reload();
+                            }, 1000)
+                        } else {
+                            Swal.fire({
+                                title: `${response.msg}`,
+                                showClass: {
+                                  popup: `
+                                    animate__animated
+                                    animate__fadeInUp
+                                    animate__faster
+                                  `
+                                },
+                                hideClass: {
+                                  popup: `
+                                    animate__animated
+                                    animate__fadeOutDown
+                                    animate__faster
+                                  `
+                                }
+                            });
                         }
                     },
                     error: function(xhr, status, error) {

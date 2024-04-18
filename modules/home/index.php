@@ -4,23 +4,23 @@
     <section class="home-intro">
         <?php 
             if(!isset($_SESSION['userData'])) { ?>
-                <div class="display mt-5">
+                <div class="d-flex justify-content-center mt-5">
                   <a href="<?php echo BASE_URL . 'modules/register/register.php'?>" class="nav-link register-btn btn-button" page-name="register">Register Now</a>
                   <a href="<?php echo BASE_URL . 'modules/login/login.php'?>" class="nav-link login-btn btn-button" page-name="login">Log In</a>
                 </div>
                 <?php 
             }
             elseif(isset($_SESSION['userData']) && (int)$_SESSION['userData']['userType'] === 2) { ?>
-				<div class="display mt-5">
-					<a href="<?php echo BASE_URL ?>modules/rescue/rescue.php" class="nav-link register-btn btn-button" page-name="register">Post Rescue</a>
-					<a href="<?php echo BASE_URL . 'modules/login/login.php'?>" class="nav-link login-btn btn-button" page-name="login">Adopt a Pet</a>
-				</div>
+              <div class="d-flex justify-content-center mt-5">
+                <a href="<?php echo BASE_URL ?>modules/rescue/rescue.php" class="nav-link register-btn btn-button" page-name="register">Post Rescue</a>
+                <a href="<?php echo BASE_URL . 'modules/pet/index.php'?>" class="nav-link login-btn btn-button" page-name="login">Adopt a Pet</a>
+              </div>
 				<?php 
             } else { ?>
-				<div class="display mt-5">
-					<a href="<?php echo BASE_URL ?>modules/rescue/rescue.php" class="nav-link register-btn btn-button" page-name="register">Post Rescue</a>
-					<a href="<?php echo BASE_URL . 'modules/login/login.php'?>" class="nav-link login-btn btn-button" page-name="login">Adopt a Pet</a>
-				</div>
+              <div class="d-flex justify-content-center mt-5">
+                <a href="<?php echo BASE_URL ?>modules/rescue/rescue.php" class="nav-link register-btn btn-button ms-2" page-name="register">For Rescue</a>
+                <a href="<?php echo BASE_URL . 'modules/adoption/adoption.php'?>" class="nav-link login-btn btn-button ms-2" page-name="login">For Adoption</a>
+              </div>
 				<?php 
 			}
         ?>

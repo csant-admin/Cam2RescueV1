@@ -7,6 +7,8 @@
                     <a href="/">Careers</a> <a href="/">Investments</a>
                     <a href="/">Terms of Service</a>
                 </div>
+            </div>
+            <div class="footer__link--wrapper">
                 <div class="footer__link--items">
                     <h2>Contact Us</h2>
                     <a href="/">Contact</a> <a href="/">Support</a>
@@ -19,6 +21,8 @@
                     <a href="/">Submit Video</a> <a href="/">Ambassadors</a>
                     <a href="/">Agency</a> <a href="/">Influencer</a>
                 </div>
+            </div>
+            <div class="footer__link--wrapper">
                 <div class="footer__link--items">
                     <h2>Social Media</h2>
                     <a href="/">Instagram</a> <a href="/">Facebook</a>
@@ -26,6 +30,7 @@
                 </div>
             </div>
         </div>
+        <hr/>
         <section class="social__media">
             <div class="social__media--wrap">
                 <div class="footer__logo">

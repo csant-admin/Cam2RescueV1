@@ -9,7 +9,7 @@
         $controller = new MY_Controller();
         $response = array('success' => false);
         $fetch_query = array(
-            'select'    => 'user_id, lastname, firstname, username, contact',
+            'select'    => 'user_id, account_status, lastname, firstname, username, contact',
             'where'     => array('userType' => 2),
             'join'      => array('user_details as detail' => 'user.user_id = detail.fk_user_id')
         );
@@ -21,7 +21,7 @@
     
         $controller = new My_Controller();
         $result = $controller->getRawData('user', $fetch_query, $type='array'); 
-
+ 
         $paginatedResult = array_slice($result, $offset, $perPage);
     
         $totalUser = count($result);
@@ -32,11 +32,12 @@
             $html .= '<td>' . $user['firstname'] . '</td>';
             $html .= '<td>' . $user['username'] . '</td>';
             $html .= '<td>' . $user['contact'] . '</td>';
-            $html .= '<td><button class="btn btn-danger delete-btn delete" data-id="'. $user['user_id'] .'"><i class="fa fa-trash"></i></button></td>';
-            $html .= '<td><button class="btn btn-danger edit-btn edit" data-id="'. $user['user_id'] .'"><i class="fa fa-edit"></i></button></td>';
+            $html .= '<td><button class="btn btn-danger delete-btn delete ml-2" data-id="'. $user['user_id'] .'"><i class="fa fa-trash"></i></button>';
+            $html .= '<button class="btn btn-warning edit-btn edit" data-id="'. $user['user_id'] .'"><i class="fa fa-edit"></i></button>';
+            $html .= '<button class="btn btn-danger activate-deactivate" data-id="'. $user['user_id'] .'" data-status="'. $user['account_status'] .'">';
+            $html .= ((int)$user['account_status'] === 1) ? '<i class="fa fa-lock"></i>' : '<i class="fa fa-unlock"></i></button></td>';
             $html .= '</tr>';
         }
-    
         $totalPages = ceil($totalUser / $perPage);
         $pagination = '';
         for ($i = 1; $i <= $totalPages; $i++) {
@@ -81,14 +82,22 @@
         $response = array('success' => false);
         $controller = new My_Controller();
         if(isset($_POST)) {
-            $to_check = array(
+            $fetch_query = array(
                 'select' => 'username',
-                'where' => array('username' => $_POST['username'])
+                'where' => array('user_id' => trim($_POST['user_id']))
             );
-            if($fetch_email = $controller->checkExistEmail('user', $to_check, $type='row')) {
+            $verify = $controller->getRawData('user', $fetch_query, $type='row');
+            $isChangeEmail = ($verify['username'] !== trim($_POST['username'])) ? true : false;
+            if($isChangeEmail) {
+                $to_check = array(
+                    'select' => 'username',
+                    'where' => array('username' => $_POST['username'])
+                );
 
-                $response['msg'] = "This email " . '<strong> "' . $fetch_email['username'] . ' " </strong> is already exist';
+                if($fetch_email = $controller->checkExistEmail('user', $to_check, $type='row')) {
 
+                    $response['msg'] = "This email " . '<strong> "' . $fetch_email['username'] . ' " </strong> is already exist';
+                }
             } else {
                 $set = array('username' => trim($_POST['username']));
                 $where = array('user_id' => trim($_POST['user_id']));
@@ -155,6 +164,30 @@
         }
         echo json_encode($response);
     }
+
+    function activateDeactivateUser() {
+        $response = array('success' => false);
+        $controller = new My_Controller();
+        if(isset($_POST['userID'])) {
+            $title = ((int)$_POST['account_status'] === 1) ? "Deactivated!" : "Activated!";
+            $message = ((int)$_POST['account_status'] === 1) ? "User has been successfuly deactivated" : "User has been successfuly Activated";
+            $errorMessage = ((int)$_POST['account_status'] === 1) ? "Failed to deactivated user" : "Failed to activate user";
+            $set = ((int)$_POST['account_status'] === 1) ? array('account_status' => 2) : array('account_status' => 1);
+            $where = array('user_id' => trim($_POST['userID']));
+            try{
+                if($controller->updateRawData('user', $set, $where)) {
+                    $response['success'] = true;
+                    $response['msg'] = $message;
+                    $response['title'] = $title;
+                } else {
+                    $response['msg'] = $errorMessage;
+                }
+            } catch(PDOException $e) {
+                $response['msg'] = 'ERROR ' . $e->getMessage();
+            }
+        }
+        echo json_encode($response);
+    }
     
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         displayUser();
@@ -174,8 +207,8 @@
                     deleteUser();
                     break;
 
-                case 'updaUserStatus':
-                    updateUserStatus();
+                case 'updateUserStatus':
+                    activateDeactivateUser();
                     break;
                 
                 default: 

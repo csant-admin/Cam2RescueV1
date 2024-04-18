@@ -6,14 +6,15 @@
 ?>
 
 <div class="container-fluid">
-        <div class="row">
-            <div class="card w-100">
-                <div class="card-body">
+    <div class="row">
+        <div class="card w-100">
+            <div class="card-body">
+                <div class="table-responsive">
                     <table class="table table-striped" id="user_table">
                         <thead>
                             <tr>
-                                <th scope="col">First</th>
-                                <th scope="col">Last</th>
+                                <th scope="col">Last Name</th>
+                                <th scope="col">First Name</th>
                                 <th scope="col">Email</th>
                                 <th scope="col">Contact #</th>
                                 <th scope="col">Action</th>
@@ -27,13 +28,13 @@
                 </div>
             </div>
         </div>
-        <!--  Row 1 -->
-        <div class="py-6 px-6 text-center">
-          <p class="mb-0 fs-4">Design and Developed by <a href="https://adminmart.com/" target="_blank" class="pe-1 text-primary text-decoration-underline">AdminMart.com</a></p>
-        </div>
-      </div>
     </div>
-  </div>
+    <!--  Row 1 -->
+    <!-- <div class="py-6 px-6 text-center">
+        <p class="mb-0 fs-4">Design and Developed by <a href="https://adminmart.com/" target="_blank" class="pe-1 text-primary text-decoration-underline">AdminMart.com</a></p>
+    </div> -->
+</div>
+</div>
   <div class="modal fade bd-edit-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg mt-5" id="editModal">
         <div class="modal-content p-5">

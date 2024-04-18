@@ -26,6 +26,22 @@
             $result = $this->get_row_data($tbl, $data, $type);
             return ($result) ? $result : false;
         }
+
+        public function fileUploader() {
+            foreach ($_FILES["attachment"]["error"] as $key => $error) {
+                $tmp_name = $_FILES["attachment"]["tmp_name"][$key];
+                if (!$tmp_name) continue;
+                $name = basename($_FILES["attachment"]["name"][$key]);
+                if ($error == UPLOAD_ERR_OK)
+                {
+                    if ( move_uploaded_file($tmp_name, "/tmp/".$name) )
+                        $uploaded_array[] .= "Uploaded file '".$name."'.<br/>\n";
+                    else
+                        $errormsg .= "Could not move uploaded file '".$tmp_name."' to '".$name."'<br/>\n";
+                }
+                else $errormsg .= "Upload error. [".$error."] on file '".$name."'<br/>\n";
+            }
+        }
     }
 
 ?>
