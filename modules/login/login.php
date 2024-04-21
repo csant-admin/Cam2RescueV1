@@ -1,14 +1,14 @@
 <?php include '../../views/includes/head.php'; ?>
 <?php include '../../views/includes/navbar.php'; ?>
 <section>
-    <div class="container">
+    <div class="container mt-3 mb-3">
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="card rounded-lg shadow mt-5">
-                <div class="card-header mb-3">
-                    <h3>Login</h3>
-                </div>
                 <div class="card-body">
-                    <div class="container">
+                    <div class="card-header p-4 rounded shadow mb-3">
+                        <h3>Login</h3>
+                    </div>
+                    <div class="card-body">
                         <div class="row">
                             <div class="col-md-6">
                                 <img src="<?php echo BASE_URL . 'assets/images/img/model20.png' ?>"
@@ -25,9 +25,9 @@
                                 </div>
                                 <br/>
                                 <!-- Email input -->
-                                <div class="row">
+                                <div class="form-group row">
                                     <label> Username </label>
-                                    <input type="text" name="username" id="usr" class="form-control form-control-lg m-2"
+                                    <input type="text" name="username" id="username" class="form-control form-control-lg m-2 pl-1"
                                     placeholder="Enter a valid email address" />
                                     <i class="fa fa-envelope fa-input-icon"></i>
                                     <!-- <label class="form-label" for="form3Example3">Email address</label> -->

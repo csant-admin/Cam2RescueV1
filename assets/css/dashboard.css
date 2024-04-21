@@ -7,6 +7,20 @@
     color: #fff;
   } */
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500 !important;
+}
+h1, h2, h3, h4, h5, h6, p, a, span, label, table, th, tr, td
+{
+    font-size: 20px !important;
+    font-weight: 500 !important;
+}
+
 .sidebar-nav ul .sidebar-item>.sidebar-link.active {
     background: #000 !important;
 }
@@ -33,6 +47,22 @@
     border: 2px solid #0000002b;
     padding-left: 50px;
 }
+
+textarea {
+    border-radius: 2rem !important;
+    border: 2px solid #0000002b !important;
+    padding-left: 65px !important;
+    font-size: 500 !important;
+}
+input[type="file"] {
+    height: 60px !important;
+    border-radius: 2rem !important;
+    border: 2px solid #0000002b;
+    padding-left: 65px;
+    padding-top: 18px;
+    font-size: 500;
+}
+
 .form-control:focus {
     border-color: #ffa500;
     box-shadow: -2px 8px 15px -8px #ffa500 !important;
@@ -43,6 +73,14 @@
     left: 20px !important;
     font-size: 25px !important;
 }
+
+input[type="file"] .fa-input-icon {
+    position: relative !important;
+    top: -48px !important;
+    left: 20px !important;
+    font-size: 25px !important;
+}
+
 div:where(.swal2-container).swal2-center>.swal2-popup {
     width: 400px !important;
     height: 250px !important;

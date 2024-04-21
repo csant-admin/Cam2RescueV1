@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="<?php echo BASE_URL . 'assets/css/datatables/css/dataTables.bootstrap5.min.css'; ?>"/>
         <link rel="stylesheet" href="<?php echo BASE_URL . 'assets/css/font-awesome/css/fontawesome.min.css'; ?>"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
         <link rel="stylesheet" href="<?php echo BASE_URL . 'assets/css/main.css'; ?>"/>
         <!-- <link rel="stylesheet" href="</?php echo BASE_URL . 'assets/css/my_style.css'?>"/> -->
         <link rel="stylesheet" href="<?php echo BASE_URL . 'assets/css/media_main.css'?>"/>

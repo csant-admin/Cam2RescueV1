@@ -1,14 +1,14 @@
 <?php include '../../views/includes/head.php'; ?>
 <?php include '../../views/includes/navbar.php'; ?>
 <section>
-    <div class="container mt-5">
+    <div class="container mt-3 mb-3">
         <!-- <div class="row">
             <div class="col-md-4">
                 <img src="<?php echo BASE_URL . 'assets/images/img/model20.png';?>" class="img-fluid mt-4 rounded shadow">
             </div> -->
         <div class="card rounded-lg shadow mt-5">
             <div class="card-body">
-                <div class="card-header">
+                <div class="card-header p-4 rounded shadow">
                     <h3>Registration Form</h3>
                 </div>
                 <!-- <div class="col-md-6">
@@ -141,6 +141,11 @@
                                 </div>
                             </div>
                             <div class="form-group row">
+                                <!-- <div class="col-md-6">
+                                    <label> Email </label>
+                                    <input type="email" id="email" class="form-control form-control-lg m-2" name="email" placeholder="Email" required autofocus>
+                                    <i class="fa fa-envelope fa-input-icon"></i>
+                                </div> -->
                                 <div class="col-md-6">
                                     <label> Email </label>
                                     <input type="email" id="email" class="form-control form-control-lg m-2" name="email" placeholder="Email" required autofocus>

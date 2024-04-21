@@ -3,8 +3,10 @@
 <section>
     <div class="container">
         <div class="card rounded shadow-lg mt-5">
-            <div class="card-header">
-                <h3>Rescue Form</h3>
+            <div class="card-body">
+                <div class="card-header p-4 rounded shadow mb-3">
+                    <h3>Rescue Form</h3>
+                </div>
             </div>
             <div class="card-body">
                 <div class="row">
@@ -62,23 +64,20 @@
                         </div>
                         <div class="form-group mt-3">
                             <label class="lead">Upload Pet Image:</label>
-                            <input class="form-control m-2" type="file" name="file[]" multiple>
+                            <input class="form-control m-2" type="file" name="file[]" id="imageInput" accept="image/*" multiple>
                             <i class="fa fa-file fa-input-icon"></i>
+                        </div>
+                        <div class="form-group row d-flex justify-content-center">
+                            <div class="image-preview" id="imagePreview">
+                                <img src="" alt="Image Preview" class="image-preview__image">
+                                <span class="image-preview__default-text">Image Preview</span>
+                            </div>
                         </div>
                         <div class="row d-flex justify-content-start">
                             <div class="col-md-4 text-center mt-3">
                                 <button type="submit" name="submit" class="btn btn-primary form-control form-control-lg m-2 p-2">Post Rescue</button>
                             </div>
                         <div>
-                        <div class="form-group row">
-                            <div class="col-md-5 m-1"></div>
-                            <div class="col-md-5 m-1">
-                                <div class="image-preview" id="imagePreview">
-                                    <img src="" alt="Image Preview" class="image-preview__image">
-                                    <span class="image-preview__default-text">Image Preview</span>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </form>
             </div>

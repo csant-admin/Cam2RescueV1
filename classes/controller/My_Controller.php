@@ -2,6 +2,13 @@
 
     class My_Controller extends My_Model {
 
+        function generateUniqueID($pattern = 'C2C') {
+            $randomDigits = str_pad(mt_rand(0, 9999), 4, '0', STR_PAD_LEFT);
+            $uniqueID = $pattern . $randomDigits;
+            $uniqueID = substr($uniqueID, 0, 7);
+            return $uniqueID;
+        }
+        
         public function getRawData($tbl, $data, $type='') {
             $result = $this->get_row_data($tbl, $data, $type);
             return ($result) ? $result : false;
@@ -27,21 +34,65 @@
             return ($result) ? $result : false;
         }
 
-        public function fileUploader() {
-            foreach ($_FILES["attachment"]["error"] as $key => $error) {
-                $tmp_name = $_FILES["attachment"]["tmp_name"][$key];
-                if (!$tmp_name) continue;
-                $name = basename($_FILES["attachment"]["name"][$key]);
-                if ($error == UPLOAD_ERR_OK)
-                {
-                    if ( move_uploaded_file($tmp_name, "/tmp/".$name) )
-                        $uploaded_array[] .= "Uploaded file '".$name."'.<br/>\n";
-                    else
-                        $errormsg .= "Could not move uploaded file '".$tmp_name."' to '".$name."'<br/>\n";
-                }
-                else $errormsg .= "Upload error. [".$error."] on file '".$name."'<br/>\n";
+        public function fileUploader($files, $moduleDirectory) {
+            $uploaded_paths = [];
+            $errormsg = "";
+        
+            if (isset($files['tmp_name'])) {
+                $files = [$files];
             }
+        
+            foreach ($files as $file) {
+                if (isset($file["tmp_name"]) && isset($file["name"]) && isset($file["error"])) {
+                    if (is_array($file["name"])) {
+                        foreach ($file["name"] as $key => $name) {
+                            $tmp_name = $file["tmp_name"][$key];
+                            $error = $file["error"][$key];
+                            if ($error == UPLOAD_ERR_OK) {
+                                $uploadDirectory = $_SERVER['DOCUMENT_ROOT'] . "/cam2rescue-v1/Cam2RescueV1/uploads/" . $moduleDirectory . "/";
+                                if (!file_exists($uploadDirectory)) {
+                                    mkdir($uploadDirectory, 0777, true);
+                                }
+                                $uniqueName = uniqid() . '_' . $name;
+                                $uploadPath = $uploadDirectory . $uniqueName;
+                                if (move_uploaded_file($tmp_name, $uploadPath)) {
+                                    $uploaded_paths[] = $uploadPath;
+                                } else {
+                                    $errormsg .= "Could not move uploaded file '" . $tmp_name . "' to '" . $uploadPath . "'<br/>\n";
+                                }
+                            } else {
+                                $errormsg .= "Upload error. [" . $error . "] on file '" . $name . "'<br/>\n";
+                            }
+                        }
+                    } else {
+                        $tmp_name = $file["tmp_name"];
+                        $name = basename($file["name"]);
+                        $error = $file["error"];
+        
+                        if ($error == UPLOAD_ERR_OK) {
+                            $uploadDirectory = $_SERVER['DOCUMENT_ROOT'] . "/cam2rescue-v1/Cam2RescueV1/uploads/" . $moduleDirectory . "/";
+                            if (!file_exists($uploadDirectory)) {
+                                mkdir($uploadDirectory, 0777, true);
+                            }
+                            $uniqueName = uniqid() . '_' . $name;
+                            $uploadPath = $uploadDirectory . $uniqueName;
+                            if (move_uploaded_file($tmp_name, $uploadPath)) {
+                                $uploaded_paths[] = $uploadPath;
+                            } else {
+                                $errormsg .= "Could not move uploaded file '" . $tmp_name . "' to '" . $uploadPath . "'<br/>\n";
+                            }
+                        } else {
+                            $errormsg .= "Upload error. [" . $error . "] on file '" . $name . "'<br/>\n";
+                        }
+                    }
+                } else {
+                    $errormsg .= "Invalid file array structure.<br/>\n";
+                }
+            }
+        
+            return ['image' => $uniqueName, 'errors' => $errormsg];
         }
+        
     }
-
+        
 ?>
