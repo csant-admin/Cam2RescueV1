@@ -1,8 +1,63 @@
 <?php 
 
+    require '../../index.php';
+
     class My_Controller extends My_Model {
 
-        function generateUniqueID($pattern = 'C2C') {
+        public function __loader__($module='') {
+            if($module) {
+                switch($module) {
+                    case 'register':
+                        return BASE_URL . 'assets/js/modules/register.js';
+                        break;
+
+                    case 'login':
+                        return BASE_URL . 'assets/js/modules/login.js';
+                        break;
+
+                    case 'home':
+                        return BASE_URL . 'assets/js/modules/home.js';
+                        break;
+
+                    case 'dashboard':
+                        return BASE_URL . 'assets/js/modules/dashboard.js';
+                        break;
+                    
+                    case 'adoption':
+                        return BASE_URL . 'assets/js/modules/adoption.js';
+                        break;
+
+                    case 'rescue':
+                        return BASE_URL . 'assets/js/modules/rescue.js';
+                        break;
+
+                    case 'user':
+                        return BASE_URL . 'assets/js/modules/user.js';
+                        break;
+                    
+                    case 'pets':
+                        return BASE_URL . 'assets/js/modules/pets.js';
+                        break;
+                    
+                    default: 
+                        return BASE_URL . 'assets/js/modules/home.js';
+                }
+
+            } else {
+                
+                return BASE_URL . 'assets/js/modules/home.js';
+            }
+        }
+
+        public function loadHomePage() {
+
+            header('Location :' . BASE_URL . 'modules/home/index.php');
+            
+            exit;
+        }
+
+
+        public function generateUniqueID($pattern = 'C2C') {
             $randomDigits = str_pad(mt_rand(0, 9999), 4, '0', STR_PAD_LEFT);
             $uniqueID = $pattern . $randomDigits;
             $uniqueID = substr($uniqueID, 0, 7);

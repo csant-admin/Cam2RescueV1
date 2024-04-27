@@ -73,9 +73,9 @@
                                 <span class="image-preview__default-text">Image Preview</span>
                             </div>
                         </div>
-                        <div class="row d-flex justify-content-start">
-                            <div class="col-md-4 text-center mt-3">
-                                <button type="submit" name="submit" class="btn btn-primary form-control form-control-lg m-2 p-2">Post Rescue</button>
+                        <div class="row d-flex justify-content-start mt-4">
+                            <div class="col-md-4">
+                                <button type="submit" name="submit" class="btn-button btn-lg">Post Rescue</button>
                             </div>
                         <div>
                     </div>

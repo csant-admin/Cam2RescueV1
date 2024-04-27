@@ -44,14 +44,73 @@
     height: auto; 
   }
   
-  .home-intro {
+  /* .home-intro {
     padding: 40vh 0;
     background: url('../images/img/model20.png');
     background-size: cover;
     background-blend-mode: multiply;
     color: white;
     text-align: center;
-  }
+    background-position: 0% 10%;
+  } */
+
+  .home-intro {
+    padding: 40vh 0;
+    background: url(../images/img/model20.png) center center / cover no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+
+.home-intro::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url(../images/img/model20-floor.png) center bottom / cover no-repeat;
+    transform: translateY(-50%);
+}
+
+
+  /* .home-intro {
+    padding: 40vh 0;
+    background: url(../images/img/model20.png) no-repeat center center;
+    background-size: cover;
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    perspective: 1000px; 
+}
+
+.home-intro::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); 
+    transform: rotateY(30deg);
+    transform-origin: 0 0; 
+}
+
+.home-intro::after {
+    content: '';
+    position: absolute;
+    top: 20%; 
+    bottom: 10%;
+    left: 10%;
+    right: 10%;
+    background: rgba(255, 255, 255, 0.5);
+    transform: rotateY(30deg); 
+    transform-origin: 0 0; 
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); 
+} */
+
+
   .home-about {
     padding: 4em 0;
     max-width: 900px;
@@ -97,7 +156,7 @@
   }
   
   .main__content h1 {
-    font-size: 500: 500
+    font-size: 500;
     background-color: #ff8177;
     background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
     background-size: 100%;
@@ -108,7 +167,7 @@
   }
   
   .main__content h2 {
-    font-size: 500: 500;
+    font-size: 500;
     margin-top: 10px;
     background-color: #ff8177;
     background-image: linear-gradient(-20deg, #b721ff 0%, #21d4fd 100%);
@@ -269,11 +328,6 @@ input[type="file"] {
     font-size: 500;
 }
 
-.form-control:focus{
-    border-color: #ffa500;
-    border: 3px solid #ffa500;
-    box-shadow: -4px 8px 12px -8px #ffa500 !important;
-}
 
 .form-check-input[type=checkbox] {
     border-radius: 2rem;
@@ -284,6 +338,14 @@ input[type="file"] {
 .form-check-input:checked{
     border-color: #ffa500 !important;
     box-shadow: -4px 8px 12px -8px #ffa500 !important;
+}
+
+.form-control:focus,
+textarea:focus,
+.form-check-input[type=checkbox]:focus {
+    border-color: #ffa500 !important;
+    border: 4px solid #ffa500 !important;
+    box-shadow: -1px 12px 8px -8px #86b7fe !important;
 }
 .form-check-label {
     display: inline-block;
