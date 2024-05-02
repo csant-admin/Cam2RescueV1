@@ -16,6 +16,9 @@
         <link rel="stylesheet" href="<?php echo BASE_URL . 'assets/css/media_main.css'?>"/>
         <title>Cam2Rescue</title>
         <link rel="shortcut icon" type="image/png" href="<?php echo BASE_URL ?>assets/images/img/favicon.ico" />
+        <!-- <link rel="stylesheet" href="https://checkoutshopper-test.adyen.com/checkoutshopper/sdk/v5.0.0/adyen.css"
+                integrity="sha384-uwMmo3xJR0e9jI+Oi5kzu43ShY0pXrb3auIlCjLjMNtl0X8Nat55eXNqwj8xU6H9"
+                crossorigin="anonymous"> -->
     </head>
 <body>
  

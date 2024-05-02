@@ -1,7 +1,5 @@
 <?php
 
-    include 'modules/home/index.php';
-
     $protocol = "https://";
     $domain = "localhost/";
     $dir = "cam2rescue-v1/Cam2RescueV1";

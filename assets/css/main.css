@@ -1,4 +1,4 @@
-
+@import '../../node_modules/@adyen/adyen-web/dist/adyen.css';
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 * {
     box-sizing: border-box;
@@ -44,7 +44,7 @@
     height: auto; 
   }
   
-  /* .home-intro {
+  .home-intro {
     padding: 40vh 0;
     background: url('../images/img/model20.png');
     background-size: cover;
@@ -52,9 +52,10 @@
     color: white;
     text-align: center;
     background-position: 0% 10%;
-  } */
+  }
 
-  .home-intro {
+
+  /* .home-intro {
     padding: 40vh 0;
     background: url(../images/img/model20.png) center center / cover no-repeat;
     position: relative;
@@ -71,7 +72,7 @@
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
                 url(../images/img/model20-floor.png) center bottom / cover no-repeat;
     transform: translateY(-50%);
-}
+} */
 
 
   /* .home-intro {

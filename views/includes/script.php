@@ -12,7 +12,11 @@
         <script src="<?php echo BASE_URL . 'assets/js/modules/adoption.js'; ?>"></script>
         <script src="<?php echo BASE_URL . 'assets/js/modules/pets.js'; ?>"></script>
         <script src="<?php echo BASE_URL . 'assets/js/jquery/library/my_jquery.js'; ?>"></script>
-        <script>
+        <!-- <script src="https://checkoutshopper-test.adyen.com/checkoutshopper/sdk/v5.0.0/adyen.js"
+                integrity="sha384-KF6Y8NQXGnIuzqJn5rcqCe6dMy7gBWobcIKr1BmIaz6pOeBAV0hrHBBMbHC/inHu"
+                crossorigin="anonymous">
+        </script> -->
+    <script>
             function previewImages() {
                 $('#imageInput').change(function() {
                     $('#imagePreview').empty(); // Clear previous previews
