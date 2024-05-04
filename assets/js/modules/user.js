@@ -72,9 +72,12 @@ $(document).ready(function(){
                     success: function(response){
                         if(response.success) {
                             Swal.fire({
+                                position: "center",
+                                icon: "success",
                                 title: "Updated!",
+                                showConfirmButton: false,
                                 text:  `${response.msg}`,
-                                icon: "success"
+                                timer: 1500
                             });
                             setTimeout(function(){
                                 window.location.reload();
@@ -119,9 +122,11 @@ $(document).ready(function(){
                     success: function(response){
                         if(response.success) {
                             Swal.fire({
+                                position: "center",
+                                icon: "success",
                                 title: "Deleted!",
                                 text:  `${response.msg}`,
-                                icon: "success"
+                                timer: 1500
                             });
                             setTimeout(function(){
                                 window.location.reload();
@@ -178,9 +183,11 @@ $(document).ready(function(){
                     success: function(response){
                         if(response.success) {
                             Swal.fire({
+                                position: "center",
+                                icon: "success",
                                 title: `${response.title}`,
                                 text:  `${response.msg}`,
-                                icon: "success"
+                                timer: 1500
                             });
                             setTimeout(function(){
                                 window.location.reload();

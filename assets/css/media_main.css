@@ -71,6 +71,10 @@
         width: 100%;
         margin: 5%;
     }
+
+    .pets-display .d-flex {
+      display: block !important;
+    }
   }
   
   @media screen and (max-width: 480px) {

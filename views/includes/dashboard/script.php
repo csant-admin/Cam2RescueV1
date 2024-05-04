@@ -12,34 +12,35 @@
 <script src="<?= BASE_URL ?>assets/js/dashboard.js"></script>
 <script src="<?= BASE_URL ?>assets/js/modules/dasboard.js"></script>
 <script src="<?= BASE_URL ?>assets/js/modules/user.js"></script>
-<script>
-            function previewImages() {
-                $('#imageInput').change(function() {
-                    $('#imagePreview').empty(); // Clear previous previews
-                    
-                    const files = this.files;
-                    
-                    for (let i = 0; i < files.length; i++) {
-                        const file = files[i];
-                        
-                        if (file) {
-                            const reader = new FileReader();
-                            
-                            reader.onload = function(e) {
-                                const img = $('<img>').attr('src', e.target.result).css({'max-width': '300px', 'max-height': '300px'});
-                                $('#imagePreview').append(img);
-                            }
-                            
-                            reader.readAsDataURL(file);
-                        }
-                    }
-                });
-            }
 
-            $(document).ready(function(){
-                previewImages();
-            })
-        </script>
+<script>
+    function previewImages() {
+        $('#imageInput').change(function() {
+            $('#imagePreview').empty(); // Clear previous previews
+            
+            const files = this.files;
+            
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+                
+                if (file) {
+                    const reader = new FileReader();
+                    
+                    reader.onload = function(e) {
+                        const img = $('<img>').attr('src', e.target.result).css({'max-width': '300px', 'max-height': '300px'});
+                        $('#imagePreview').append(img);
+                    }
+                    
+                    reader.readAsDataURL(file);
+                }
+            }
+        });
+    }
+
+    $(document).ready(function(){
+        previewImages();
+    })
+</script>
       <div class="modal fade" id="postPetModal" tabindex="-1" aria-labelledby="myLargeModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-lg mt-5" id="editModal">
               <div class="modal-content p-5">

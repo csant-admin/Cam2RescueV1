@@ -41,7 +41,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="<?= BASE_URL ?>adoption" aria-expanded="false">
+              <a class="sidebar-link" href="<?= BASE_URL ?>modules/dashboard/adoption_request.php" aria-expanded="false">
                 <span>
                   <!-- <i class="ti ti-article text-info"></i> -->
                   <img src="<?= BASE_URL ?>/assets/images/img/adopts.png" class="fa-images">
